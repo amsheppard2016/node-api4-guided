@@ -14,7 +14,7 @@ router.get("/shouts", (req, res, next) => {
     const motd = process.env.MOTD || "hello world!";
     Shouts.find()
         .then((shouts) => {
-            res.status(200).json(shouts);
+            res.status(200).json({ motds: motd, shout });
         })
         .catch((error) => next(error));
 });
